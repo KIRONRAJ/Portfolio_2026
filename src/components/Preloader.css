@@ -1,0 +1,65 @@
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: var(--bg);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.preloader::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(60% 50% at 50% 50%, rgba(0, 255, 163, 0.06), transparent 70%);
+  pointer-events: none;
+}
+.pl-inner {
+  width: min(560px, 86vw);
+  font-family: var(--font-mono);
+}
+.pl-boot {
+  font-size: clamp(0.62rem, 1.8vw, 0.8rem);
+  color: var(--text-dim);
+  line-height: 2;
+  margin-bottom: 30px;
+}
+.pl-line {
+  opacity: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.pl-prompt { color: var(--green); }
+
+.pl-meter-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  color: var(--green);
+  margin-bottom: 10px;
+}
+.pl-track {
+  height: 3px;
+  width: 100%;
+  background: rgba(0, 255, 163, 0.12);
+  overflow: hidden;
+}
+.pl-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--green-deep), var(--green));
+  box-shadow: 0 0 14px var(--green);
+}
+.pl-grant {
+  opacity: 0;
+  margin-top: 26px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 6px;
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  color: var(--green);
+  text-shadow: 0 0 22px rgba(0, 255, 163, 0.5);
+}

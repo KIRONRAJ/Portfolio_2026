@@ -1,0 +1,73 @@
+.certs { padding-top: 0; }
+
+.cert-marquee {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+  padding: 20px 0;
+  margin-bottom: clamp(70px, 10vh, 130px);
+  background: rgba(0, 255, 163, 0.02);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.cert-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 26px;
+  white-space: nowrap;
+  animation: marquee 40s linear infinite;
+  will-change: transform;
+}
+.cert-marquee:hover .cert-track { animation-play-state: paused; }
+.cert-tick {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.1rem, 2.6vw, 1.7rem);
+  color: var(--text-dim);
+  display: inline-flex;
+  align-items: center;
+  gap: 26px;
+}
+.cert-tick-dot { color: var(--green); font-size: 0.7em; }
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.cert-head .section-index { color: var(--green); }
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.cert-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 22px;
+  border: 1px solid var(--line-soft);
+  background: rgba(255, 255, 255, 0.012);
+  transition: border-color 0.35s, transform 0.35s var(--ease), background 0.35s;
+  position: relative;
+  overflow: hidden;
+}
+.cert-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width: 2px; height: 100%;
+  background: var(--green);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.35s var(--ease);
+}
+.cert-card:hover { border-color: var(--line); transform: translateY(-3px); background: rgba(0, 255, 163, 0.03); }
+.cert-card:hover::before { transform: scaleY(1); }
+.cert-year { font-size: 0.7rem; letter-spacing: 1px; color: var(--green); }
+.cert-name { font-family: var(--font-display); font-weight: 600; font-size: 0.98rem; color: var(--text); line-height: 1.25; }
+.cert-issuer { font-size: 0.78rem; color: var(--muted); margin-top: auto; }
+
+@media (max-width: 860px) { .cert-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 540px) { .cert-grid { grid-template-columns: 1fr; } }
