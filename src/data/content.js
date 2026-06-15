@@ -17,7 +17,7 @@ export const profile = {
   email: 'contact@kironraj.com',
   phone: '+64 22 131 9495',
   nationality: 'India',
-  resume: 'https://kironraj.com/resume.pdf',
+  resume: '/resume.pdf',
   avatar: 'https://github.com/KIRONRAJ.png',
   available: 'Open to opportunities',
 }
